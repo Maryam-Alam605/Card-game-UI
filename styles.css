@@ -1,0 +1,34 @@
+* {
+  margin-top: 0px;
+}
+h1 {
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 3rem;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+main .item {
+  height: 180px;
+  width: 130px;
+  background-color: bisque;
+  border: 1.5px solid black;
+}
+main {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* 4 columns */
+  gap: 20px;
+  justify-items: center;
+  margin: 40px auto;
+}
+main img {
+  height: 50px;
+  display: block;
+  margin: 60px auto;
+}
