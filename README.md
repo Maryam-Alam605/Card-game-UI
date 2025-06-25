@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 You said:
 
 <!DOCTYPE html>
@@ -204,3 +205,7 @@ _Add a screenshot here later_
 ## ✨ Inspiration
 
 Made with love by a cat lover 💛
+=======
+# Card-game-UI
+UI of a memory game for cat lovers — match the paws to reveal the hidden cats!
+>>>>>>> dc1740d6a72c9998b2aea575fee3ac2e1a57e149
