@@ -14,6 +14,11 @@ header {
   align-items: center;
   gap: 10px;
 }
+.scores {
+  display: flex;
+  font-family: monospace;
+  font-size: 1.2rem;
+}
 main .item {
   height: 180px;
   width: 130px;
@@ -31,4 +36,13 @@ main img {
   height: 50px;
   display: block;
   margin: 60px auto;
+}
+.revealed {
+  height: 125
+  px;
+  display: block;
+  margin: 0 auto;
+}
+#meow {
+  cursor: pointer;
 }
