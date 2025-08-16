@@ -24,24 +24,28 @@ main .item {
   width: 130px;
   background-color: bisque;
   border: 1.5px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 main {
   display: grid;
-  grid-template-columns: repeat(8, 1fr); /* 4 columns */
+  grid-template-columns: repeat(8, 1fr);
   gap: 20px;
   justify-items: center;
   margin: 40px auto;
 }
-main img {
-  height: 50px;
-  display: block;
-  margin: 60px auto;
+main .item img {
+  max-height: 80%;
+  max-width: 80%;
+  object-fit: contain;
+  transition: 0.3s ease-in-out;
 }
 .revealed {
-  height: 125
-  px;
-  display: block;
-  margin: 0 auto;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
 }
 #meow {
   cursor: pointer;

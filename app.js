@@ -1,6 +1,7 @@
 let cards = document.querySelectorAll(".item");
 let matchedPairs = 0;
 let flippedCards = [];
+let isChecking = false;
 let meow = document.querySelector("#meow");
 
 meow.addEventListener("click", () => {
@@ -10,41 +11,48 @@ meow.addEventListener("click", () => {
 
 cards.forEach((card) => {
   card.addEventListener("click", () => {
-    let cardName = card.querySelector("img");
-    let catImage = card.getAttribute("data-cat");
-    cardName.src = catImage;
-    cardName.classList.add("revealed");
+    if (isChecking || flippedCards.includes(card)) return;
 
+    revealCard(card);
     flippedCards.push(card);
 
     if (flippedCards.length === 2) {
-      let firstCard = flippedCards[0];
-      let secondCard = flippedCards[1];
-
-      let firstCat = firstCard.getAttribute("data-cat");
-      let secondCat = secondCard.getAttribute("data-cat");
+      isChecking = true;
+      let [first, second] = flippedCards;
+      let firstCat = first.getAttribute("data-cat");
+      let secondCat = second.getAttribute("data-cat");
 
       if (firstCat === secondCat) {
-        document.querySelector("h1").innerText = "Wow! that is correct!";
         matchedPairs++;
         document.querySelector("#score").innerText = matchedPairs;
+        document.querySelector("h1").innerText = "Wow! That is correct!";
+        flippedCards = [];
+        isChecking = false;
+
         if (matchedPairs === 8) {
           document.querySelector("h1").innerText = "Congratulations! You Win!";
         }
-        flippedCards = [];
       } else {
         document.querySelector("h1").innerText = "Try Again";
-
         setTimeout(() => {
-          firstCard.querySelector("img").src = "assets/paws.png";
-          secondCard.querySelector("img").src = "assets/paws.png";
-
-          firstCard.querySelector("img").classList.remove("revealed");
-          secondCard.querySelector("img").classList.remove("revealed");
-
+          hideCard(first);
+          hideCard(second);
           flippedCards = [];
+          isChecking = false;
         }, 1000);
       }
     }
   });
 });
+
+function revealCard(card) {
+  let img = card.querySelector("img");
+  img.src = card.getAttribute("data-cat");
+  img.classList.add("revealed");
+}
+
+function hideCard(card) {
+  let img = card.querySelector("img");
+  img.src = "assets/paws.png";
+  img.classList.remove("revealed");
+}
