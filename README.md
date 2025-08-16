@@ -21,4 +21,5 @@ Game logic coming soon 🛠️
 
 ## ✨ Inspiration
 Made with love by a cat lover 💛
+https://catcardgame.netlify.app/
 
